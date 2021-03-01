@@ -15,21 +15,23 @@ You will see lots of output the first time you build the package, as Maven is pu
 Once built you will see something like this:
 
 ```
-  Starting Database...
-  Database Started...
-  Starting Web Server...
-  Feb 19, 2021 8:46:11 AM org.glassfish.grizzly.http.server.NetworkListener start
-  INFO: Started listener bound to [0.0.0.0:9000]
-  Feb 19, 2021 8:46:11 AM org.glassfish.grizzly.http.server.HttpServer start
-  INFO: [HttpServer] Started.
-  Web Server Started..
+    Starting CEP...
+    sourceString: [@source(type='inMemory', topic='e8734f00-0f3d-4426-9b27-4bb00d561d34', @map(type='json')) define stream AccessStream (remote_ip string, timestamp long); ]
+    sinkString: [@sink(type='inMemory', topic='81ff28d8-5591-40e2-9b46-e9089f66c58e', @map(type='json')) define stream CountStream (count long); ]
+    CEP Started...
+    Starting Web Server...
+    Mar 01, 2021 8:17:58 AM org.glassfish.grizzly.http.server.NetworkListener start
+    INFO: Started listener bound to [0.0.0.0:9000]
+    Mar 01, 2021 8:17:58 AM org.glassfish.grizzly.http.server.HttpServer start
+    INFO: [HttpServer] Started.
+    Web Server Started...
 ```
 
 Curl can be used to check that your API and database is responding:
 *Note the use of a required security header
 ```
-curl -H "X-Auth-API-Key: 12463865" http://localhost:9000/api/checkmydatabase
-{"status_desc":"accesslog table exists","success":"true"}
+curl -H "X-Auth-API-Key: 12463865" http://localhost:9000/api/checkmycep
+{"status_desc":"CEP Engine exists","success":"true"}
 ```
 ---
 
