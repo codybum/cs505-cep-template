@@ -26,17 +26,14 @@ public class API {
     }
 
     //check local
-<<<<<<< HEAD
     //curl --header "X-Auth-API-key:1234" "http://localhost:8082/api/checkmycep"
 
     //check remote
     //curl --header "X-Auth-API-key:1234" "http://[linkblueid].cs.uky.edu:8082/api/checkmycep"
-=======
     //curl --header "X-Auth-API-key:1234" "http://localhost:8081/api/checkmycep"
 
     //check remote
     //curl --header "X-Auth-API-key:1234" "http://[linkblueid].cs.uky.edu:8081/api/checkmycep"
->>>>>>> dd1b0ca... Initial commit
 
     @GET
     @Path("/checkmycep")
