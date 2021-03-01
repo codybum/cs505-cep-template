@@ -14,7 +14,7 @@ import java.net.URI;
 public class Launcher {
 
     public static final String API_SERVICE_KEY = "0"; //Change this to your student id
-    public static final int WEB_PORT = 8082;
+    public static final int WEB_PORT = 9000;
     public static String inputStreamName = null;
     public static long accessCount = -1;
 

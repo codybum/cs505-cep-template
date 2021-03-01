@@ -26,14 +26,14 @@ public class API {
     }
 
     //check local
-    //curl --header "X-Auth-API-key:1234" "http://localhost:8082/api/checkmycep"
+    //curl --header "X-Auth-API-key:1234" "http://localhost:9000/api/checkmycep"
 
     //check remote
     //curl --header "X-Auth-API-key:1234" "http://[linkblueid].cs.uky.edu:8082/api/checkmycep"
-    //curl --header "X-Auth-API-key:1234" "http://localhost:8081/api/checkmycep"
+    //curl --header "X-Auth-API-key:1234" "http://localhost:9000/api/checkmycep"
 
     //check remote
-    //curl --header "X-Auth-API-key:1234" "http://[linkblueid].cs.uky.edu:8081/api/checkmycep"
+    //curl --header "X-Auth-API-key:1234" "http://[linkblueid].cs.uky.edu:9000/api/checkmycep"
 
     @GET
     @Path("/checkmycep")
