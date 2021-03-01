@@ -1,3 +1,3 @@
 mvn clean package
 cd target
-java -jar cs505-cep-template-1.0-SNAPSHOT.jar
+java -Djava.net.preferIPv4Stack=true -jar cs505-cep-template-1.0-SNAPSHOT.jar
