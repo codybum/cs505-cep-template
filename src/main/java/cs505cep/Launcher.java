@@ -26,7 +26,6 @@ public class Launcher {
 
         System.out.println("Starting CEP...");
         //Embedded database initialization
-
         cepEngine = new CEPEngine();
 
         inputStreamName = "AccessStream";
@@ -35,7 +34,12 @@ public class Launcher {
         String outputStreamName = "CountStream";
         String outputStreamAttributesString = "count long";
 
-        String queryString = " ";
+        String queryString = " " +
+                "from " + inputStreamName +
+                " select count() as count " +
+                "insert into " + outputStreamName + "; ";
+
+        System.out.println(queryString);
 
         cepEngine.createCEP(inputStreamName, outputStreamName, inputStreamAttributesString, outputStreamAttributesString, queryString);
 
