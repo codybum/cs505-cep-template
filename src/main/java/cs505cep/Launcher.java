@@ -1,7 +1,6 @@
 package cs505cep;
 
 import cs505cep.CEP.CEPEngine;
-import cs505cep.httpfilters.AuthenticationFilter;
 import org.glassfish.grizzly.http.server.HttpServer;
 import org.glassfish.jersey.grizzly2.httpserver.GrizzlyHttpServerFactory;
 import org.glassfish.jersey.server.ResourceConfig;
@@ -13,8 +12,7 @@ import java.net.URI;
 
 public class Launcher {
 
-    public static final String API_SERVICE_KEY = "0"; //Change this to your student id
-    public static final int WEB_PORT = 9000;
+    public static final int WEB_PORT = 9001;
     public static String inputStreamName = null;
     public static long accessCount = -1;
 
@@ -35,9 +33,15 @@ public class Launcher {
         String outputStreamAttributesString = "count long";
 
         String queryString = " " +
-                "from " + inputStreamName +
-                " select count() as count " +
-                "insert into " + outputStreamName + "; ";
+                "from " + inputStreamName + "#window.timeBatch(10 sec) " +
+
+
+                " select convert(avg(count()),'long') as count " +
+
+                //" output snapshot every 1 sec " +
+
+                " insert into " + outputStreamName + "; ";
+
 
         System.out.println(queryString);
 
@@ -62,8 +66,7 @@ public class Launcher {
     private static void startServer() throws IOException {
 
         final ResourceConfig rc = new ResourceConfig()
-        .packages("cs505cep.httpcontrollers")
-        .register(AuthenticationFilter.class);
+        .packages("cs505cep.httpcontrollers");
 
         System.out.println("Starting Web Server...");
         URI BASE_URI = UriBuilder.fromUri("http://0.0.0.0/").port(WEB_PORT).build();

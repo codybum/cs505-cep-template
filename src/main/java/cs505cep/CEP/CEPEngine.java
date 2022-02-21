@@ -102,7 +102,7 @@ public class CEPEngine {
         try {
 
             sourceString  = "@source(type='inMemory', topic='" + topic + "', @map(type='json')) " +
-                    "define stream " + streamName + " (" + inputStreamAttributesString + "); ";
+                    "define stream " + streamName + " (" + inputStreamAttributesString + ")  ; ";
 
         } catch (Exception ex) {
             ex.printStackTrace();
