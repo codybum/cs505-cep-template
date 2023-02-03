@@ -31,7 +31,8 @@ public class Launcher {
 
         String outputStreamName = "CountStream";
         String outputStreamAttributesString = "count long";
-
+        
+        //Write query here
         String queryString = " ";
 
         System.out.println(queryString);
