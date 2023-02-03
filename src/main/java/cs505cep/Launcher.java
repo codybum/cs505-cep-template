@@ -32,16 +32,7 @@ public class Launcher {
         String outputStreamName = "CountStream";
         String outputStreamAttributesString = "count long";
 
-        String queryString = " " +
-                "from " + inputStreamName + "#window.timeBatch(10 sec) " +
-
-
-                " select convert(avg(count()),'long') as count " +
-
-                //" output snapshot every 1 sec " +
-
-                " insert into " + outputStreamName + "; ";
-
+        String queryString = " ";
 
         System.out.println(queryString);
 
