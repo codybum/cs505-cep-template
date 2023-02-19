@@ -96,7 +96,7 @@ public class API {
 
             //generate a response
             Map<String,String> responseMap = new HashMap<>();
-            responseMap.put("accesscoint",String.valueOf(Launcher.accessCount));
+            responseMap.put("accesscount",String.valueOf(Launcher.accessCount));
             responseString = gson.toJson(responseMap);
 
         } catch (Exception ex) {
